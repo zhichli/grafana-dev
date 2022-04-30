@@ -1,0 +1,2 @@
+- use postgresql database for persistence
+- leverage docker container
