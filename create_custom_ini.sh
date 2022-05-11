@@ -6,10 +6,12 @@ pswdname=grafana-dev-postgresql-admin-pswd
 
 az login
 az account set -s $subId
-pswd=$(az keyvault secret show --name "$pswdname" --vault-name $kvname --query "value" -o tsv)
+pswd=$(az keyvault secret show --name "$pswdname" --vault-name $kvname --query "value" -o tsv | tr -d '\r')
 customini=custom.ini
 cp template_$customini $customini
 sed -i "s|POSTGRESQL_DATABASE_PSWD|$pswd|g" $customini
 
 sudo apt install dos2unix
 dos2unix $customini
+
+cp $customini ~/grafana/conf
