@@ -14,4 +14,5 @@ sed -i "s|IDENTITYHEADER|$identityheader|g" $launchjson
 sudo apt install dos2unix
 dos2unix $launchjson
 
-mv $launchjson ~/grafana/.vscode
+#mv $launchjson ~/grafana/.vscode
+ln -s -f ../../grafana-dev/$launchjson ~/grafana/.vscode/$launchjson
