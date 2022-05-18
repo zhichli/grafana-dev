@@ -1,0 +1,35 @@
+apiVersion: 1
+
+datasources:
+  - name: azuregrafana-kusto
+    type: grafana-azure-data-explorer-datasource
+    access: proxy
+    isDefault: false
+    jsonData:
+      azureCloud: azuremonitor
+      clientId: "74b9f6c6-44aa-4598-a1aa-a22a45e4141d"
+      clusterUrl: "https://azuregrafana.westus2.kusto.windows.net"
+      dataConsistency: strongconsistency
+      defaultDatabase: rpprod
+      tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47"
+    secureJsonData:
+      clientSecret: "CLIENTSECRET-zhichli-grafana-adx-sp"
+  - name: ags-prom-mdm
+    type: prometheus
+    url: https://az-ncus.prod.prometheusmetrics.trafficmanager.net
+    access: proxy
+    isDefault: false
+    jsonData:
+      azureCredentials:
+        authType: clientsecret
+        azureCloud: AzureCloud
+        clientId: "94ffa30b-1f56-4d02-bc23-ca78c31eee1b"
+        tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47"
+      azureEndpointResourceId: "https://management.azure.com"
+      httpHeaderName1: mdmAccountName
+      httpHeaderName2: x-ms-use-new-mdm-namespace
+      httpMethod: POST
+    secureJsonData:
+      azureClientSecret: "grafana-aad-app-client-secret"
+      httpHeaderValue1: AzGrafanaPromDogFood
+      httpHeaderValue2: "true"

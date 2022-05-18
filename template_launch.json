@@ -9,7 +9,9 @@
       "program": "${workspaceFolder}/pkg/cmd/grafana-server/",
       "env": {
         "IDENTITY_ENDPOINT": "https://grafana-dev-webapp.azurewebsites.net/oauth2/v2.0/msi/appservice/token",
-        "IDENTITY_HEADER": "IDENTITYHEADER"
+        "IDENTITY_HEADER": "IDENTITYHEADER",
+        "JAEGER_TRACEID_128BIT": "true",
+        "GF_FEATURE_TOGGLES_ENABLE": "prometheus_azure_auth,httpclientprovider_azure_auth,migrationLocking,tracing,persistNotifications"
       },
       "cwd": "${workspaceFolder}",
       "args": ["--homepath", "${workspaceFolder}", "--packaging", "dev"]

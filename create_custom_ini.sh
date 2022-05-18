@@ -14,4 +14,4 @@ sed -i "s|POSTGRESQL_DATABASE_PSWD|$pswd|g" $customini
 sudo apt install dos2unix
 dos2unix $customini
 
-cp $customini ~/grafana/conf
+mv $customini ~/grafana/conf
