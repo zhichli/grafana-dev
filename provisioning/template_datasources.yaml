@@ -21,15 +21,11 @@ datasources:
     isDefault: false
     jsonData:
       azureCredentials:
-        authType: clientsecret
-        azureCloud: AzureCloud
-        clientId: "94ffa30b-1f56-4d02-bc23-ca78c31eee1b"
-        tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47"
+        authType: msi
       azureEndpointResourceId: "https://management.azure.com"
       httpHeaderName1: mdmAccountName
       httpHeaderName2: x-ms-use-new-mdm-namespace
       httpMethod: POST
     secureJsonData:
-      azureClientSecret: "grafana-aad-app-client-secret"
       httpHeaderValue1: AzGrafanaPromDogFood
       httpHeaderValue2: "true"
